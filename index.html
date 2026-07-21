@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habeeb Bolaji Gobir — IP, Entertainment & Technology Counsel</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --ink:#12161F;
+  --parchment:#F6F2E9;
+  --parchment-dim:#EDE7D8;
+  --navy:#101B2E;
+  --navy-soft:#1B2A45;
+  --brass:#A9832F;
+  --brass-bright:#C89A3E;
+  --teal:#2E6E62;
+  --line: rgba(16,27,46,0.14);
+  --line-on-navy: rgba(246,242,233,0.16);
+  --serif: 'Fraunces', serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--parchment);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+}
+
+a{color:inherit;}
+img{max-width:100%;display:block;}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+/* ---------- texture ---------- */
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:1; opacity:0.035;
+  background-image:
+    repeating-linear-gradient(0deg, #000 0px, transparent 1px, transparent 2px);
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(246,242,233,0.88);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:18px 32px;}
+@media(max-width:640px){.nav-inner{padding:14px 20px;}}
+.nav-mark{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--navy); text-decoration:none; font-weight:500;
+  border:1px solid var(--navy); padding:6px 10px; border-radius:2px;
+}
+.nav-links{display:flex; gap:28px; list-style:none;}
+.nav-links a{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink); opacity:0.7; transition:opacity 0.2s;
+}
+.nav-links a:hover{opacity:1;}
+@media(max-width:760px){.nav-links{display:none;}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  background:var(--navy);
+  color:var(--parchment);
+  padding:96px 0 88px;
+  overflow:hidden;
+  border-bottom:6px solid var(--brass);
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--line-on-navy) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-on-navy) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 80% 60% at 70% 30%, black, transparent);
+  opacity:0.5;
+}
+.hero-grid{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1fr 220px; gap:48px; align-items:center;
+}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr; gap:40px;}}
+
+.eyebrow{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--brass-bright); margin-bottom:22px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:""; width:24px; height:1px; background:var(--brass-bright); display:inline-block;}
+
+.hero h1{
+  font-family:var(--serif); font-weight:600; font-size:clamp(38px,6vw,68px);
+  line-height:1.04; letter-spacing:-0.01em; margin-bottom:18px;
+}
+.hero .role{
+  font-family:var(--serif); font-style:italic; font-weight:400; font-size:clamp(18px,2.4vw,24px);
+  color:var(--parchment); opacity:0.82; margin-bottom:26px;
+}
+.hero p.desc{max-width:520px; opacity:0.78; font-size:15.5px;}
+
+.hero-stats{
+  display:flex; flex-wrap:wrap; gap:0; margin-top:40px;
+  border-top:1px solid var(--line-on-navy);
+}
+.stat{
+  padding:16px 26px 0 0; margin-right:26px;
+  border-right:1px solid var(--line-on-navy);
+  padding-top:16px;
+}
+.stat:last-child{border-right:none;}
+.stat .n{font-family:var(--serif); font-size:26px; color:var(--brass-bright); font-weight:600;}
+.stat .l{font-family:var(--mono); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; opacity:0.65; margin-top:2px;}
+
+/* seal */
+.seal-wrap{display:flex; justify-content:center;}
+.seal{
+  width:190px; height:190px; position:relative;
+  animation:spin 40s linear infinite;
+}
+@media (prefers-reduced-motion: reduce){.seal{animation:none;}}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.seal svg{width:100%; height:100%;}
+.seal-center{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  flex-direction:column; text-align:center;
+}
+.seal-center .ini{font-family:var(--serif); font-size:34px; color:var(--brass-bright); font-weight:600; line-height:1;}
+.seal-center .sub{font-family:var(--mono); font-size:8px; letter-spacing:0.1em; color:var(--parchment); opacity:0.6; margin-top:4px;}
+
+/* ---------- ticker band ---------- */
+.ticker-band{
+  background:var(--brass); overflow:hidden; white-space:nowrap; border-bottom:1px solid var(--ink);
+}
+.ticker-track{
+  display:inline-flex; align-items:center; gap:14px; padding:11px 0;
+  animation:ticker 26s linear infinite;
+  font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:0.08em; color:var(--navy);
+}
+@media (prefers-reduced-motion: reduce){ .ticker-track{ animation:none; } }
+.ticker-track .dot{color:var(--parchment); opacity:0.7; margin-right:14px;}
+@keyframes ticker{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* hero ambient glow */
+.hero{ position:relative; }
+.hero::after{
+  content:"";
+  position:absolute; top:-10%; right:5%; width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle, rgba(200,154,62,0.22), transparent 70%);
+  z-index:1; pointer-events:none;
+}
+
+/* ---------- section shell ---------- */
+section{padding:88px 0;}
+@media(max-width:640px){section{padding:64px 0;}}
+.section-head{
+  display:flex; align-items:baseline; gap:16px; margin-bottom:48px;
+  border-bottom:1px solid var(--line); padding-bottom:18px;
+}
+.section-num{font-family:var(--mono); font-size:13px; color:var(--brass); letter-spacing:0.05em;}
+.section-head h2{font-family:var(--serif); font-size:clamp(26px,3.4vw,36px); font-weight:600;}
+.section-tag{margin-left:auto; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.45;}
+@media(max-width:640px){.section-tag{display:none;}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px;}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+.about-grid p{margin-bottom:18px; font-size:16px; color:var(--ink); opacity:0.88;}
+.about-grid p:first-of-type::first-letter{
+  font-family:var(--serif); font-size:56px; float:left; line-height:0.8; margin:6px 8px 0 0;
+  color:var(--navy); font-weight:600;
+}
+.credential-card{
+  background:var(--navy); color:var(--parchment); padding:28px 26px; border-radius:4px;
+  border-left:4px solid var(--brass);
+}
+.credential-card h3{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass-bright); margin-bottom:16px;}
+.credential-card ul{list-style:none;}
+.credential-card li{font-size:14px; padding:9px 0; border-top:1px solid var(--line-on-navy);}
+.credential-card li:first-child{border-top:none;}
+
+/* ---------- practice areas ---------- */
+.practice-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+@media(max-width:700px){.practice-grid{grid-template-columns:1fr;}}
+.practice-card{background:var(--parchment); padding:34px 32px; border-top:3px solid var(--brass); position:relative;}
+.practice-card:nth-child(2n){border-top-color:var(--teal);}
+.practice-card:nth-child(2n) .pnum{color:var(--teal);}
+.practice-card .pnum{font-family:var(--mono); font-size:12px; color:var(--brass); margin-bottom:14px;}
+.practice-card h3{font-family:var(--serif); font-size:21px; font-weight:600; margin-bottom:10px;}
+.practice-card p{font-size:14.5px; opacity:0.75;}
+
+/* ---------- experience timeline ---------- */
+.track-toggle{display:flex; gap:10px; margin-bottom:38px;}
+.track-btn{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase;
+  padding:9px 18px; border:1px solid var(--navy); background:transparent; color:var(--navy);
+  cursor:pointer; border-radius:2px; transition:all 0.2s;
+}
+.track-btn.active{background:var(--navy); color:var(--parchment);}
+
+.tl{position:relative; padding-left:28px;}
+.tl::before{content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line);}
+.tl-item{position:relative; padding-bottom:38px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:""; position:absolute; left:-28px; top:5px; width:11px; height:11px; border-radius:50%;
+  background:var(--parchment); border:2px solid var(--brass);
+}
+.tl-item.tech::before{border-color:var(--teal);}
+.tl-date{font-family:var(--mono); font-size:11.5px; color:var(--brass); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:6px;}
+.tl-item.tech .tl-date{color:var(--teal);}
+.tl-item h4{font-family:var(--serif); font-size:19px; font-weight:600; margin-bottom:2px;}
+.tl-item .org{font-size:13.5px; opacity:0.6; margin-bottom:10px; font-style:italic;}
+.tl-item ul{padding-left:18px; font-size:14.5px; opacity:0.82;}
+.tl-item li{margin-bottom:5px;}
+
+/* ---------- recognition ---------- */
+.stamps{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:22px;}
+.stamp{
+  border:1px dashed var(--brass); padding:22px 20px; position:relative; background:var(--parchment-dim);
+}
+.stamp .ribbon{
+  position:absolute; top:-10px; right:16px; background:var(--brass); color:var(--parchment);
+  font-family:var(--mono); font-size:9.5px; padding:3px 9px; letter-spacing:0.06em; text-transform:uppercase;
+}
+.stamp h4{font-family:var(--serif); font-size:16.5px; font-weight:600; margin-bottom:6px; padding-right:10px;}
+.stamp p{font-size:12.5px; opacity:0.65; font-family:var(--mono);}
+
+/* ---------- exhibits gallery (speaking engagements) ---------- */
+.exhibits-section{
+  position:relative;
+  background:var(--navy);
+  overflow:hidden;
+  border-top:6px solid var(--brass);
+  border-bottom:6px solid var(--brass);
+}
+.corkboard-texture{
+  position:absolute; inset:0; z-index:1;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(200,154,62,0.06), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(46,110,98,0.08), transparent 45%),
+    linear-gradient(var(--line-on-navy) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-on-navy) 1px, transparent 1px);
+  background-size:auto, auto, 42px 42px, 42px 42px;
+  opacity:0.7;
+}
+.exhibit-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+  gap:44px 28px;
+  padding-top:8px;
+}
+.exhibit-card{
+  background:#FBF9F3;
+  padding:12px 12px 16px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.35);
+  transform:rotate(var(--r));
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  position:relative;
+}
+.exhibit-card:hover{
+  transform:rotate(0deg) scale(1.045);
+  box-shadow:0 20px 40px rgba(0,0,0,0.45);
+  z-index:5;
+}
+.exhibit-card::before{
+  content:"";
+  position:absolute; top:-9px; left:50%; transform:translateX(-50%) rotate(-4deg);
+  width:34px; height:16px;
+  background:rgba(169,131,47,0.85);
+  box-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+.exhibit-label{
+  position:absolute; top:20px; left:20px; z-index:3;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;
+  background:var(--navy); color:var(--brass-bright); padding:3px 8px; border:1px solid var(--brass);
+}
+.exhibit-card img{
+  width:100%; height:230px; object-fit:cover; object-position:top center;
+  filter:grayscale(0.15) contrast(1.05);
+}
+.exhibit-card figcaption{padding:14px 6px 2px;}
+.exhibit-card figcaption h4{
+  font-family:var(--serif); font-size:15.5px; font-weight:600; color:var(--ink); line-height:1.25; margin-bottom:6px;
+}
+.exhibit-card figcaption span{
+  font-family:var(--mono); font-size:10.5px; color:var(--navy-soft); opacity:0.75; line-height:1.5; display:block;
+}
+
+/* ---------- publications ---------- */
+.pub-list{border-top:1px solid var(--line);}
+.pub{
+  display:grid; grid-template-columns:110px 1fr; gap:24px; padding:22px 0; border-bottom:1px solid var(--line);
+  text-decoration:none; color:var(--ink); transition:padding-left 0.2s;
+}
+.pub:hover{padding-left:8px;}
+@media(max-width:600px){.pub{grid-template-columns:1fr; gap:6px;}}
+.pub .py{font-family:var(--mono); font-size:12px; color:var(--brass); text-transform:uppercase;}
+.pub h4{font-family:var(--serif); font-size:17px; font-weight:600; margin-bottom:4px;}
+.pub span.venue{font-size:13px; opacity:0.6;}
+.pub .arrow{opacity:0; transition:opacity 0.2s;}
+.pub:hover .arrow{opacity:1;}
+
+/* ---------- education ---------- */
+.edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+@media(max-width:700px){.edu-grid{grid-template-columns:1fr;}}
+.edu-card{background:var(--parchment); padding:28px 30px;}
+.edu-card .deg{font-family:var(--serif); font-size:20px; font-weight:600; margin-bottom:4px;}
+.edu-card .inst{font-size:14px; opacity:0.7; margin-bottom:10px;}
+.edu-card .meta{font-family:var(--mono); font-size:11.5px; color:var(--brass); letter-spacing:0.03em;}
+
+/* ---------- contact / footer ---------- */
+.contact{
+  background:var(--navy); color:var(--parchment); padding:90px 0 50px; border-top:6px solid var(--brass);
+}
+.contact h2{font-family:var(--serif); font-size:clamp(30px,4.5vw,46px); font-weight:600; max-width:640px; line-height:1.15; margin-bottom:20px;}
+.contact p.lead{opacity:0.75; max-width:520px; margin-bottom:40px; font-size:16px;}
+.contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:60px;}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+.c-item{border-top:1px solid var(--line-on-navy); padding-top:16px;}
+.c-item .lbl{font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.55; margin-bottom:8px;}
+.c-item a, .c-item span{font-size:15.5px; text-decoration:none; color:var(--parchment);}
+.c-item a:hover{color:var(--brass-bright);}
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; padding-top:30px;
+  border-top:1px solid var(--line-on-navy); font-family:var(--mono); font-size:11px; opacity:0.5; flex-wrap:wrap; gap:10px;
+}
+
+/* fade-in on scroll */
+.fade-up{opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease;}
+.fade-up.visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">H.B.G.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#practice">Practice</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#recognition">Recognition</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Case No. IP&nbsp;/&nbsp;ENT&nbsp;/&nbsp;TECH — Abuja, Nigeria</div>
+      <h1>Habeeb Bolaji<br>Gobir</h1>
+      <p class="role">Intellectual Property, Entertainment &amp; Technology Counsel</p>
+      <p class="desc">Advising creators, technology companies, and innovators across Africa, Asia, and the Middle East on IP protection, commercialization, and digital regulatory strategy. Managing Partner, Blockblista Advisory.</p>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="n">9</div><div class="l">WIPO Certifications</div></div>
+        <div class="stat"><div class="n">#2</div><div class="l">Nigeria · Top 200 Global — Favikon</div></div>
+        <div class="stat"><div class="n">15+</div><div class="l">Tech &amp; Blockchain Projects</div></div>
+        <div class="stat"><div class="n">3</div><div class="l">Continents of Practice</div></div>
+      </div>
+    </div>
+
+    <div class="seal-wrap">
+      <div class="seal">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <path id="circlePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+          </defs>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#C89A3E" stroke-width="1" opacity="0.6"/>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#C89A3E" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#C89A3E" stroke-width="0.6" opacity="0.5"/>
+          <text font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#C89A3E" letter-spacing="3">
+            <textPath href="#circlePath" startOffset="0%">WIPO CERTIFIED · IP COUNSEL · EST. 2020 · </textPath>
+          </text>
+        </svg>
+        <div class="seal-center">
+          <div class="ini">HBG</div>
+          <div class="sub">REG. PRACTITIONER</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker-band">
+  <div class="ticker-track">
+    <span>INTELLECTUAL PROPERTY LAW</span><span class="dot">✦</span>
+    <span>ENTERTAINMENT &amp; MEDIA LAW</span><span class="dot">✦</span>
+    <span>TECHNOLOGY &amp; DIGITAL REGULATION</span><span class="dot">✦</span>
+    <span>WEB3 &amp; BLOCKCHAIN ADVISORY</span><span class="dot">✦</span>
+    <span>WIPO CERTIFIED</span><span class="dot">✦</span>
+    <span>INTELLECTUAL PROPERTY LAW</span><span class="dot">✦</span>
+    <span>ENTERTAINMENT &amp; MEDIA LAW</span><span class="dot">✦</span>
+    <span>TECHNOLOGY &amp; DIGITAL REGULATION</span><span class="dot">✦</span>
+    <span>WEB3 &amp; BLOCKCHAIN ADVISORY</span><span class="dot">✦</span>
+    <span>WIPO CERTIFIED</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<main>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">§01</span>
+        <h2>About</h2>
+        <span class="section-tag">Preamble</span>
+      </div>
+      <div class="about-grid">
+        <div class="fade-up">
+          <p>Habeeb is a lawyer with experience in intellectual property, entertainment, and technology law, with a strong focus on advisory work for innovative and creative industries. His core practice centers on IP protection, commercialization, and regulatory strategy.</p>
+          <p>He is WIPO-certified, holding nine WIPO Academy certifications, and has published widely on IP law, including in WIPO Magazine. He has contributed to policy discussions in the space, including supporting WIPO Nigeria on IP-related recommendations and serving as a panelist at national IP conferences.</p>
+          <p>His work spans Asia, Africa, and the Middle East, advising startups, technology companies, and creative businesses on IP structuring, compliance, licensing, and digital regulatory frameworks — from national trademark portfolios to cross-border digital asset compliance.</p>
+        </div>
+        <div class="credential-card fade-up">
+          <h3>At a Glance</h3>
+          <ul>
+            <li>Managing Partner, Blockblista Advisory</li>
+            <li>Legal Consultant, Cryptoverse Legal (Dubai)</li>
+            <li>IP Expert, Project Atlas — Mecor</li>
+            <li>Contributing Drafter, Nigeria's First IP Securitisation Framework for the Creative Economy — commissioned by the Federal Ministry of Art &amp; Culture</li>
+            <li>Ranked #2 in Nigeria, Top 200 Globally — Favikon</li>
+            <li>Most Outstanding IP Influencer in Africa — WIPO/JIIPC</li>
+            <li>Nigerian Law School, B.L. — Top 19% of 7,000</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="practice" style="background:var(--parchment-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">§02</span>
+        <h2>Practice Areas</h2>
+        <span class="section-tag">Scope of Advisory</span>
+      </div>
+      <div class="practice-grid fade-up">
+        <div class="practice-card">
+          <div class="pnum">01</div>
+          <h3>IP Protection &amp; Commercialization</h3>
+          <p>Trademark, copyright, and patent strategy — filing, registration, portfolio management, and Madrid System filings — alongside licensing structures that turn rights into revenue.</p>
+        </div>
+        <div class="practice-card">
+          <div class="pnum">02</div>
+          <h3>Entertainment &amp; Media Law</h3>
+          <p>Rights acquisition, option and purchase agreements, content production and talent agreements, and copyright enforcement for film, music, and digital content.</p>
+        </div>
+        <div class="practice-card">
+          <div class="pnum">03</div>
+          <h3>Technology &amp; Digital Regulatory Advisory</h3>
+          <p>Regulatory frameworks for digital assets and technology businesses across Nigeria, the UAE, and the EU, including compliance and smart-contract-based arrangements.</p>
+        </div>
+        <div class="practice-card">
+          <div class="pnum">04</div>
+          <h3>Blockchain &amp; Web3 Ecosystem Strategy</h3>
+          <p>Governance and engagement systems, ecosystem growth, and regional strategy for Layer-1 and Web3 platforms across Africa and Asia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">§03</span>
+        <h2>Experience</h2>
+        <span class="section-tag">Professional Record</span>
+      </div>
+
+      <div class="track-toggle">
+        <button class="track-btn active" data-track="legal">Legal Practice</button>
+        <button class="track-btn" data-track="tech">Tech &amp; Web3</button>
+      </div>
+
+      <div class="tl fade-up" id="track-legal">
+        <div class="tl-item">
+          <div class="tl-date">2025 — Present</div>
+          <h4>Managing Partner</h4>
+          <div class="org">Blockblista Advisory · Abuja, Nigeria</div>
+          <ul>
+            <li>Manages day-to-day legal and business operations, client engagement, and strategic planning.</li>
+            <li>Drafts and supervises commercial agreements, legal opinions, and compliance documentation.</li>
+            <li>Coordinates cross-border trademark filings and brand protection across multiple jurisdictions.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2025 — Present</div>
+          <h4>Legal Consultant, Blockchain &amp; Digital Assets</h4>
+          <div class="org">Cryptoverse Legal · Dubai, UAE (Remote)</div>
+          <ul>
+            <li>Advises on smart-contract-based commercial arrangements and regulatory exposure.</li>
+            <li>Prepares legal memoranda on digital asset frameworks across the UAE, EU, and African markets.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2025 — Recent</div>
+          <h4>IP Expert, Project Atlas</h4>
+          <div class="org">Mecor</div>
+          <ul>
+            <li>Engaged as intellectual property expert on Project Atlas.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2024 — 2025</div>
+          <h4>Legal Associate</h4>
+          <div class="org">Templars Law Firm · Abuja, Nigeria</div>
+          <ul>
+            <li>Supported the transaction team on the ExxonMobil–Seplat Energy US$800M divestment.</li>
+            <li>Drafted advisory notes, memoranda, and litigation documentation across corporate and energy matters.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2022 — 2024</div>
+          <h4>Legal Research &amp; Advisory Consultant</h4>
+          <div class="org">Vortex Entertainment · Abuja, Nigeria</div>
+          <ul>
+            <li>Advised on copyright and IP issues across film, animation, gaming, and digital content.</li>
+            <li>Drafted licensing, content production, and talent agreements.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2022 — 2023</div>
+          <h4>Volunteer &amp; Policy Contributor</h4>
+          <div class="org">World Intellectual Property Organization, Nigeria Office</div>
+          <ul>
+            <li>Co-drafted the National IP Curriculum Policy for Northern Nigerian institutions.</li>
+            <li>Represented WIPO Nigeria as speaker/panelist at the National IP Student Convention.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl fade-up" id="track-tech" style="display:none;">
+        <div class="tl-item tech">
+          <div class="tl-date">2024 — 2025</div>
+          <h4>Head of Community</h4>
+          <div class="org">HeLa Labs · Singapore (Remote)</div>
+          <ul>
+            <li>Led ecosystem development and user acquisition for a Layer-1 blockchain.</li>
+            <li>Coordinated 27 AMAs and 19 global onboarding campaigns aligned with Token Generation Events.</li>
+          </ul>
+        </div>
+        <div class="tl-item tech">
+          <div class="tl-date">2022 — 2025</div>
+          <h4>Head of Africa Region</h4>
+          <div class="org">Skate Chain · Singapore (Remote)</div>
+          <ul>
+            <li>Built partnerships with blockchain ecosystems, universities, and exchanges across Africa.</li>
+            <li>Led growth initiatives across 5+ African countries, lifting user acquisition by 40%+.</li>
+          </ul>
+        </div>
+        <div class="tl-item tech">
+          <div class="tl-date">2020 — 2025</div>
+          <h4>Project Manager</h4>
+          <div class="org">Blucka Web3 Agency · UAE (Remote)</div>
+          <ul>
+            <li>Expanded Blucka's client portfolio using HubSpot CRM and LinkedIn Sales Navigator.</li>
+            <li>Directed digital campaign planning and performance tracking across Twitter, LinkedIn, and Discord.</li>
+          </ul>
+        </div>
+        <div class="tl-item tech">
+          <div class="tl-date">2023 — 2024</div>
+          <h4>Community &amp; Ecosystem Lead</h4>
+          <div class="org">DBUNKER Network · China (Remote)</div>
+          <ul>
+            <li>Built and led a 12-member moderator team, cutting complaint resolution time by 25%.</li>
+          </ul>
+        </div>
+        <div class="tl-item tech">
+          <div class="tl-date">2021 — 2022</div>
+          <h4>Project Manager</h4>
+          <div class="org">ZKBASE · China (Remote)</div>
+          <ul>
+            <li>Managed influencer and thought-leader partnerships, lifting community interactions by 150%.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recognition" style="background:var(--parchment-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">§04</span>
+        <h2>Recognition</h2>
+        <span class="section-tag">Awards &amp; Honors</span>
+      </div>
+      <div class="stamps fade-up">
+        <div class="stamp"><span class="ribbon">2026</span><h4>Ranked No. 2 (Nigeria) &amp; Top 200 Global, Privacy &amp; IP Law</h4><p>Favikon</p></div>
+        <div class="stamp"><span class="ribbon">2025</span><h4>Most Outstanding IP Influencer in Africa</h4><p>WIPO / JIIPC — Professional Category</p></div>
+        <div class="stamp"><span class="ribbon">2025</span><h4>Nominee, IP Legal Rising Star Award</h4><p>MIPLG IP Gala Award</p></div>
+        <div class="stamp"><span class="ribbon">2023</span><h4>Most Outstanding IP Influencer in Africa</h4><p>WIPO / JIIPC — Student Category</p></div>
+        <div class="stamp"><span class="ribbon">2023</span><h4>Rising Star of the Legal Profession, Africa</h4><p>Legal Idea Forum</p></div>
+        <div class="stamp"><span class="ribbon">2022–23</span><h4>Winner &amp; Runner-up, National IP Essay Competitions</h4><p>3 Competitions, Nigeria</p></div>
+        <div class="stamp"><span class="ribbon">2024</span><h4>Nigerian Law School Scholarship Grant</h4><p>Popoola Taiwo &amp; Co.</p></div>
+        <div class="stamp"><span class="ribbon">—</span><h4>Nine WIPO Academy Certifications</h4><p>Incl. DL-101 &amp; Advanced IP Courses</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="speaking" class="exhibits-section">
+    <div class="corkboard-texture"></div>
+    <div class="wrap" style="position:relative; z-index:2;">
+      <div class="section-head" style="border-bottom-color:var(--line-on-navy);">
+        <span class="section-num" style="color:var(--brass-bright);">§05</span>
+        <h2 style="color:var(--parchment);">Speaking Engagements</h2>
+        <span class="section-tag" style="color:rgba(246,242,233,0.5);">Exhibits A–M</span>
+      </div>
+
+      <div class="exhibit-grid fade-up">
+
+        <figure class="exhibit-card" style="--r:-3deg;">
+          <span class="exhibit-label">Exhibit A</span>
+          <img src="photos/lsan-sokoto.jpg" alt="LSAN Judiciary webinar, Usmanu Danfodiyo University Sokoto">
+          <figcaption>
+            <h4>The Digital World: What Is Expected of a Lawyer in the Internet Era</h4>
+            <span>Webinar · Speaker — LSAN Judiciary, Usmanu Danfodiyo University, Sokoto · Jul 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:2.5deg;">
+          <span class="exhibit-label">Exhibit B</span>
+          <img src="photos/unn-masterclass.jpg" alt="Intellectual Property Masterclass 4.0, UNN">
+          <figcaption>
+            <h4>Patents Demystified: Protecting Innovation in the Real World</h4>
+            <span>IP Masterclass 4.0 · Speaker — IP Club, UNN x Nigerian Copyright Commission · Mar 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:-1.5deg;">
+          <span class="exhibit-label">Exhibit C</span>
+          <img src="photos/elevate-africa.jpg" alt="Elevate Africa Legal Edition">
+          <figcaption>
+            <h4>Elevate Africa — Legal Edition</h4>
+            <span>Panel · Speaker — An initiative of 5Point1Nexus · Apr 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:3deg;">
+          <span class="exhibit-label">Exhibit D</span>
+          <img src="photos/ip-moot.jpg" alt="National IP Arbitration Moot Competition">
+          <figcaption>
+            <h4>National IP Arbitration Moot Competition — "Our Creative Future"</h4>
+            <span>Preliminary Round · Judge — Nigerian IP Club x IP National Convention · Apr 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:-2deg;">
+          <span class="exhibit-label">Exhibit E</span>
+          <img src="photos/beyond-ip-theory.jpg" alt="Beyond IP Theory webinar, One Stop Compliance Hub">
+          <figcaption>
+            <h4>Beyond IP Theory: Trademark Protection in the Digital Age</h4>
+            <span>2-Day Webinar · Guest Speaker — One Stop Compliance Hub · Apr–May 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:1.5deg;">
+          <span class="exhibit-label">Exhibit F</span>
+          <img src="photos/abu-zaria-mentor.jpg" alt="Meet Our Mentor, IP Club Ahmadu Bello University Zaria">
+          <figcaption>
+            <h4>Meet Our Mentor</h4>
+            <span>Mentorship Session · Mentor — IP Club, Ahmadu Bello University, Zaria · Jun 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:-3.5deg;">
+          <span class="exhibit-label">Exhibit G</span>
+          <img src="photos/lexchain-workshop.jpg" alt="LexChain monthly workshop">
+          <figcaption>
+            <h4>Stablecoins v. CBDCs and Regulatory Frameworks</h4>
+            <span>Monthly Workshop · Guest — LexChain · Jan 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:2deg;">
+          <span class="exhibit-label">Exhibit H</span>
+          <img src="photos/uyo-bootcamp.jpg" alt="Bootcamp, JNAC IP Society x University of Uyo">
+          <figcaption>
+            <h4>Turning Ideas into Assets: Intellectual Property in Practice</h4>
+            <span>Bootcamp · Speaker — JNAC's IP Society x IP Society, University of Uyo · Apr 2026</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:-1deg;">
+          <span class="exhibit-label">Exhibit I</span>
+          <img src="photos/oau-internship.jpg" alt="Stellar Virtual Internship Programme, IPLC OAU">
+          <figcaption>
+            <h4>Emerging Technologies &amp; IP (AI, Blockchain, Metaverse, NFTs)</h4>
+            <span>Virtual Internship Programme · Speaker — IP Law Club, Obafemi Awolowo University · Oct</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:3deg;">
+          <span class="exhibit-label">Exhibit J</span>
+          <img src="photos/skate-lagos.jpg" alt="Skate Africa Lagos Meetup">
+          <figcaption>
+            <h4>Skate Africa — Lagos Meetup</h4>
+            <span>Meetup · Speaker — Skate Chain · 2025</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:-2.5deg;">
+          <span class="exhibit-label">Exhibit K</span>
+          <img src="photos/xspace-sec.jpg" alt="X Space on SEC digital asset rules">
+          <figcaption>
+            <h4>Understanding the SEC's Digital Asset Rules: What Actually Changed in 2025</h4>
+            <span>X Space · Guest Speaker · Nov 2025</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:1deg;">
+          <span class="exhibit-label">Exhibit L</span>
+          <img src="photos/ecowatt-xspace.jpg" alt="EcoWatt's Next X Space panel">
+          <figcaption>
+            <h4>EcoWatt's Next? #2 — User-Owned Infrastructure</h4>
+            <span>X Space Panel · Panelist, representing Skate · Nov 2025</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exhibit-card" style="--r:-1.8deg;">
+          <span class="exhibit-label">Exhibit M</span>
+          <img src="photos/audacity-of-hope.jpg" alt="Audacity of Hope Training 1.0">
+          <figcaption>
+            <h4>Audacity of Hope Training 1.0 — IP Law Mentorship</h4>
+            <span>Mentorship · Tutor — Law Students' School of Continuing Education (LSSCE) · Oct 2023</span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" style="background:var(--parchment-dim);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">§06</span>
+        <h2>Publications</h2>
+        <span class="section-tag">Thought Leadership</span>
+      </div>
+      <div class="pub-list fade-up">
+        <a class="pub" href="https://www.wipo.int/web/wipo-magazine/articles/the-lijadu-sisters-and-the-power-of-copyright-backed-reissues-74901" target="_blank" rel="noopener">
+          <div class="py">Jun 2025</div>
+          <div><h4>The Lijadu Sisters and the Power of Copyright-Backed Reissues <span class="arrow">→</span></h4><span class="venue">WIPO Magazine</span></div>
+        </a>
+        <a class="pub" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6972359" target="_blank" rel="noopener">
+          <div class="py">SSRN</div>
+          <div><h4>Intellectual Property, Innovation and Economic Development in Nigeria: Challenges, Opportunities and Policy Pathways <span class="arrow">→</span></h4><span class="venue">SSRN</span></div>
+        </a>
+        <a class="pub" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4016693" target="_blank" rel="noopener">
+          <div class="py">SSRN</div>
+          <div><h4>Intellectual Property, SMEs, and Economic Recovery in Nigeria <span class="arrow">→</span></h4><span class="venue">SSRN</span></div>
+        </a>
+        <a class="pub" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4028291" target="_blank" rel="noopener">
+          <div class="py">SSRN</div>
+          <div><h4>Artificial Intelligence and IP Protection: In Defence of AI-Generated Works <span class="arrow">→</span></h4><span class="venue">SSRN</span></div>
+        </a>
+        <a class="pub" href="https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3966504_code4910116.pdf?abstractid=3961698&mirid=1" target="_blank" rel="noopener">
+          <div class="py">SSRN</div>
+          <div><h4>AfCFTA: The Role of Law and Policy in Driving Competitiveness for Businesses in Nigeria <span class="arrow">→</span></h4><span class="venue">SSRN</span></div>
+        </a>
+        <a class="pub" href="https://blockblista.com/?p=2130" target="_blank" rel="noopener">
+          <div class="py">Blockblista</div>
+          <div><h4>From Grey Zones to Legal Clarity: Nigeria's Journey with Virtual Asset Regulation <span class="arrow">→</span></h4><span class="venue">Blockblista Advisory</span></div>
+        </a>
+        <a class="pub" href="https://thenigerialawyer.com/rethinking-public-performance-the-avrs-judgment-and-its-implications-for-copyright-enforcement-in-nigerias-hospitality-sector/#google_vignette" target="_blank" rel="noopener">
+          <div class="py">Case Note</div>
+          <div><h4>Rethinking Public Performance: The AVRS Judgment <span class="arrow">→</span></h4><span class="venue">TheNigeriaLawyer</span></div>
+        </a>
+        <a class="pub" href="https://thenigerialawyer.com/case-review-amanyi-mohammed-v-sproxil-nigeria-ltd-ors-copyright-ideas-and-the-limits-of-protection-for-functional-works/" target="_blank" rel="noopener">
+          <div class="py">Case Note</div>
+          <div><h4>Amanyi Mohammed v. Sproxil Nigeria Ltd &amp; Ors <span class="arrow">→</span></h4><span class="venue">TheNigeriaLawyer</span></div>
+        </a>
+        <a class="pub" href="https://thenigerialawyer.com/recovery-of-premises-in-tenancy-matter-viz-a-viz-the-rights-of-both-parties-and-the-aftermath-for-non-compliance-with-rules-by-gobir-habeeb-bolaji/#google_vignette" target="_blank" rel="noopener">
+          <div class="py">Case Note</div>
+          <div><h4>Recovery of Premises in Tenancy Matters Vis-à-Vis the Rights of Both Parties and the Aftermath for Non-Compliance with Rules <span class="arrow">→</span></h4><span class="venue">TheNigeriaLawyer</span></div>
+        </a>
+        <a class="pub" href="https://www.linkedin.com/newsletters/ip-in-practice-with-h-b-gobir-7424139894593277953" target="_blank" rel="noopener">
+          <div class="py">Weekly</div>
+          <div><h4>IP in Practice <span class="arrow">→</span></h4><span class="venue">LinkedIn Newsletter</span></div>
+        </a>
+        <a class="pub" href="#" onclick="return false;">
+          <div class="py">Vol. 1</div>
+          <div><h4>VAPP Act 2015: A Critical Analysis</h4><span class="venue">UNIABUJA Journal of Jurisprudence &amp; International Law, pp. 176–188</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">§07</span>
+        <h2>Education</h2>
+        <span class="section-tag">Credentials</span>
+      </div>
+      <div class="edu-grid fade-up">
+        <div class="edu-card">
+          <div class="deg">B.L., Law — Qualifying Certificate</div>
+          <div class="inst">Nigerian Law School, Adamawa State</div>
+          <div class="meta">Feb – Nov 2023 · Second Class Upper · Top 19% of 7,000</div>
+        </div>
+        <div class="edu-card">
+          <div class="deg">LL.B., Bachelor of Laws</div>
+          <div class="inst">Usmanu Danfodiyo University, Sokoto</div>
+          <div class="meta">Dec 2016 – Jan 2023 · CGPA 3.52/5.0 · Second Class Upper</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-num" style="color:var(--brass-bright); margin-bottom:14px;">§08 — Closing</div>
+    <h2>Let's discuss your IP, entertainment, or technology matter.</h2>
+    <p class="lead">Available for advisory engagements, portfolio management, and cross-border IP strategy across Africa, the Middle East, and Asia.</p>
+
+    <div class="contact-grid">
+      <div class="c-item">
+        <div class="lbl">Email</div>
+        <a href="mailto:habeebgobir2@gmail.com">habeebgobir2@gmail.com</a>
+      </div>
+      <div class="c-item">
+        <div class="lbl">Phone</div>
+        <span>+234 810 852 7278</span>
+      </div>
+      <div class="c-item">
+        <div class="lbl">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/habeeb-gobir" target="_blank" rel="noopener">Habeeb Gobir</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Abuja, Nigeria — Available Worldwide (Remote)</span>
+      <span>© 2026 Habeeb Bolaji Gobir</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // fade-up on scroll
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+  // experience track toggle
+  const btns = document.querySelectorAll('.track-btn');
+  btns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const track = btn.getAttribute('data-track');
+      document.getElementById('track-legal').style.display = track === 'legal' ? '' : 'none';
+      document.getElementById('track-tech').style.display = track === 'tech' ? '' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
